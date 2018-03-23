@@ -13,8 +13,10 @@ passport.use(
       callbackURL: "/auth/google/callback",
       proxy: true
     },
-    accessToken => {
-      console.log(accessToken);
+    (accessToken,refreshToken,profile,done) => {
+      console.log("accessToken",accessToken);
+      console.log("refreshToken",refreshToken);
+      console.log("profile",profile);
     }
   )
 );
