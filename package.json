@@ -1,14 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "engines": {
     "node": ">=8.9.4",
     "npm": ">=5.6.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,9 +16,20 @@
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
     "mongoose": "^5.0.11",
+    "nodemon": "^1.17.2",
     "passport": "^0.4.0",
     "passport-github": "^1.1.0",
     "passport-google-oauth20": "^1.0.0",
     "tunnel": "0.0.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TingAlex/Emaily.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TingAlex/Emaily/issues"
+  },
+  "homepage": "https://github.com/TingAlex/Emaily#readme",
+  "description": ""
 }

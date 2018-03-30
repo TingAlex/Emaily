@@ -47,6 +47,7 @@ passport.use(
       User.findOne({ githubId: profile.id }).then(existingUser => {
         if (existingUser) {
           //aleady have a record before
+          //done method will resume the passport process
           done(null, existingUser);
         } else {
           //make new record
