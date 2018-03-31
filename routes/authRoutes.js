@@ -12,6 +12,9 @@ module.exports = app => {
   app.get("/", (req, res) => {
     res.send("hi");
   });
+  app.get("/hello", (req, res) => {
+    res.send("hello~");
+  });
   //github OAuth
   app.get(
     "/auth/github",

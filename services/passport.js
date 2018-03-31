@@ -39,24 +39,18 @@ passport.use(
       callbackURL: "/auth/github/callback",
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       console.log("accessToken", accessToken);
-      // console.log("refreshToken", refreshToken);
-      // console.log("profile", profile);
-      // console.log("githubId:", profile.id);
-      User.findOne({ githubId: profile.id }).then(existingUser => {
-        if (existingUser) {
-          //aleady have a record before
-          //done method will resume the passport process
-          done(null, existingUser);
-        } else {
-          //make new record
-          //need save() to
-          new User({ githubId: profile.id })
-            .save()
-            .then(user => done(null, user));
-        }
-      });
+      const existingUser = await User.findOne({ githubId: profile.id });
+      if (existingUser) {
+        //aleady have a record before
+        //done method will resume the passport process
+        return done(null, existingUser);
+      }
+      //make new record
+      //need save() to
+      const user = await new User({ githubId: profile.id }).save();
+      done(null, user);
     }
   )
 );
