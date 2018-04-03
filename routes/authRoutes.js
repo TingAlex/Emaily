@@ -9,12 +9,6 @@ module.exports = app => {
   );
   app.get("/auth/google/callback", passport.authenticate("google"));
 
-  app.get("/", (req, res) => {
-    res.send("hi");
-  });
-  app.get("/hello", (req, res) => {
-    res.send("hello~");
-  });
   //github OAuth
   app.get(
     "/auth/github",
