@@ -6,6 +6,7 @@ const passport = require("passport");
 const keys = require("./config/keys");
 //these two statement must appear in this order!you must require user model first.
 require("./models/User");
+require("./models/survey");
 require("./services/passport");
 const bodyParser = require("body-parser");
 mongoose.connect(keys.mongoURI);
@@ -23,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
-
+require("./routes/surveyRoutes")(app);
 if (process.env.NODE_ENV == "production") {
   //Express will serve up production assets
   //like main.js file, or main.css file
